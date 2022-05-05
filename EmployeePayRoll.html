@@ -3,6 +3,7 @@
     <head>
         <title>Employee PayRoll form</title>
         <link rel="stylesheet" href="employeeroll.css">
+        <link rel="JavaScript" href="PayRoll.js">
     </head>
     <body>
         
@@ -13,9 +14,9 @@
                     <span class="emp-text">Employee</span><br>
                     <span class="emp-text emp-payroll">PAYROLL</span>
                 </div>
-        </header>
+        </header> 
             <div class="form-content">
-                <form class="form" action="#" onsubmit="save(event); return false">
+                <form class="form" action="#" onreset="resetForm()" onsubmit="save()"; return false">
                     <div class="form-head">
                         Employee PayRoll form
                     </div>

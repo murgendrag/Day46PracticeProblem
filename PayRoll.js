@@ -95,3 +95,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
     output.textContent = salary.value;
     });
 });
+
+const save=()=> {
+    try {
+        let EmployeePayrollData=createEmployeePayroll();
+    }catch(e){
+        return;
+    }
+}
+const createEmployeePayroll=()=>{
+    let EmployeePayrollData = new EmployeePayrollData();
+    try{
+        EmployeePayrollData.name = getInputById=(id)
+    }catch(e){
+        setTextValue('.text-error',e);
+        throw e;
+    }
+
+    employeePayrollData.profilepic=getSelectedValues('[name=profile]').pop();
+    employeePayrollData.gender=getSelectedValues('[name=gender]').pop();
+    employeePayrollData.department = getSelectedValues ('[name=department]'); 
+    employeePayrollData.salary = getInputValueById('#salary');
+    employeePayrollData.note=getInputById('#notes');
+    let date = getInputById('#day') +" " +getInputById('#month') +" "
+    +getInputById('#year');
+    employeePayrollData.date=Date.parse(date);
+    alert(employeePayrollData.toString());
+    return employeePayrollData;
+}
+
+const  getSelectedValues = (propertyValue) => {
+
+    let allItems=doucument.querySelectorAll(propertyValue);
+    let selItems=[];
+    allItems.forEach(item =>{
+        if(item.checked) selItems.push(item.value);
+
+    });
+    return selItems;
+}
