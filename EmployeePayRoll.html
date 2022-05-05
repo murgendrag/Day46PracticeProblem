@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Employee PayRoll form</title>
+        <link rel="stylesheet" href="employeeroll.css">
+    </head>
+    <body>
+        
+        <header class="header-content header">
+            <div class="logo-content">
+                <img src="logo.png" width="25%">
+                <div>
+                    <span class="emp-text">Employee</span><br>
+                    <span class="emp-text emp-payroll">PAYROLL</span>
+                </div>
+        </header>
+            <div class="form-content">
+                <form class="form" action="#" onsubmit="save(event); return false">
+                    <div class="form-head">
+                        Employee PayRoll form
+                    </div>
+                
+                    <div class="row-content">
+                        <label class="label text" for="name">Name</label>
+                        <input class="input" type="text" id="name" name="name" placeholder="Your name.."
+                        required> 
+                    </div>
+                    <script>
+                        const text =document.querySelector('# text');
+                        const textError=document.querySelector('.texterror');
+                        text.addEventListener('input',function()
+                        {
+                            let NameRegex=RegExp('^[A-Z]{1}[a-z]{3,}$');
+                            if(NameRegex.test(textvalue))
+                            textError.textContent=""
+                            else
+                            textError.textContent="Name is Incorrect"
+                        });
+                    </script>
+                    
+                    <div class="row-content">
+                        <label class="label text" for="profile">profile image</label>
+                        <div class="profile-radio-content">
+                            <label>
+                                <input type="radio" id="profile1" name="profile" value="image1" required>
+                                <img class="profile" id='image1' src="Ellipse -1.png">
+                            </label>
+                            <label>
+                                <input type="radio" id="profile2" name="profile" value="image2" required>
+                                <img class="profile" id='image2' src="Ellipse -2.png">
+                            </label>
+                            <label>
+                                <input type="radio" id="profile3" name="profile" value="image3" required>
+                                <img class="profile" id='image3' src="Ellipse -3.png">
+                            </label>
+                            <label>
+                                <input type="radio" id="profile4" name="profile" value="image4" required>
+                                <img class="profile" id='image4' src="Ellipse -4.png">
+                            </label>
+                        </div>
+                     </div>
+                    
+                    <div class="row-content">
+                        <label class="label text" for="gender">Gender</label>
+                        <div>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label class="text" for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label class="text" for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="row-content">
+                        <label class="label text" for="department">Department</label>
+                        <div>
+
+                            <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+                            <label class="text" for="hr">HR</label>
+                            <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+                            <label class="text" for="sales">Sales</label>
+                            <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+                            <label class="text" for="finance">Finance</label>
+                            <input class="checkbox" type="checkbox" id="eingneer" name="eingneer" value="Eingneer">
+                            <label class="text" for="eingneer">Eingneer</label>
+                            <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
+                            <label class="text" for="others">Others</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row-content">
+                     <label class="label text" for="salary">Salary</label>
+                     <input class="input" type="range" name="salary" id="salary" min="30000"
+                                max="50000" step="100" value="40000">
+                    <output class="salary-output text" for="salary">40000</output>
+                    </div>
+                    <script>
+                                    const salary = document.querySelector('#salary'); 
+                                    const output= document.querySelector('.salary-output');
+                                    output.textContent = salary.value; 
+                                    salary.addEventListener('input', function() {
+                                    output.textContent = salary.value;
+                                    });
+                                
+                    </script>
+                
+                    <div class="nativeDateTimePicker">
+                        <label for="party"> Choose a Date and time</label>
+                        <input type="datetime-local" id="party" name="party">
+                    </div>
+             
+                    <div class="row-content">
+                        <label class="label text" for="notes">Notes</label>
+                        <textarea id="notes" class="input" name="Notes" placeholder="" 
+                            style="height:180px"></textarea>
+                        </div>
+                            <div class="buttonParent">
+                                <a href="/home.html" class="resetButton button cancelButton">Cancel</a> <div class="submit-reset">
+                                <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+                                <button type="reset" class="resetButton button">Reset</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+    </body>
+</html>
