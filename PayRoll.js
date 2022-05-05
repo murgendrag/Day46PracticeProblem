@@ -103,6 +103,18 @@ const save=()=> {
         return;
     }
 }
+
+    function createAndUpdateStorage (employeePayrollData) {
+    let employeePayrollList= JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined){
+        employeePayrollList.push(employeePayrollData);
+    } else{
+    employeePayrollList=[employeePayrollData]
+    } 
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify (employeePayrollList))
+    }
+
 const createEmployeePayroll=()=>{
     let EmployeePayrollData = new EmployeePayrollData();
     try{
@@ -123,7 +135,10 @@ const createEmployeePayroll=()=>{
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
-
+ const getInputById = (id) =>{
+     let value = doucument.querySelector(id).value;
+     return value;
+ }
 const  getSelectedValues = (propertyValue) => {
 
     let allItems=doucument.querySelectorAll(propertyValue);
@@ -133,4 +148,30 @@ const  getSelectedValues = (propertyValue) => {
 
     });
     return selItems;
+}
+
+const resetForm = () =>{
+    setValue('#name','');
+    unsetSelectedValues('[name=profile]'); 
+    unsetSelectedValues ( '[name=gender]');
+    unsetSelectedValues ( '[name-department]');
+    setValue('#salary',  ''); 
+    setValue('#notes','');
+    setValue('#day', '1');
+    setValue( '#month', 'January');
+    setValue('#year', '2020'); 
+}
+
+const unsetSelectedValues= (propertyValue) => {
+    let allItems = document.querySelectorAll (propertyValue); 
+    allItems.forEach(item => {item. checked = false;
+});
+
+const setTextValue =(id, value)=>{
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
+const setValue = (id, value)=> { 
+    const element = document.querySelector(id)
+    element.value= value;
 }
